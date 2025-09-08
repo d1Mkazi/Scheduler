@@ -1,40 +1,26 @@
-cmake_minimum_required(VERSION 3.19)
-project(Scheduler LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.16)
 
-find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets LinguistTools)
+project(Scheduler VERSION 0.1 LANGUAGES CXX)
 
-qt_standard_project_setup()
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-qt_add_executable(Scheduler
-    WIN32 MACOSX_BUNDLE
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
+find_package(Qt6 REQUIRED COMPONENTS
+    Widgets
+    Quick
+    Core
+    Qml
 )
 
-qt_add_translations(
-    TARGETS Scheduler
-    TS_FILES Scheduler_en_US.ts
-)
+qt_standard_project_setup(REQUIRES 6.8)
 
-target_link_libraries(Scheduler
-    PRIVATE
-        Qt::Core
-        Qt::Widgets
-)
+qt_policy(SET QTP0004 NEW)
+
+add_subdirectory(src)
 
 include(GNUInstallDirs)
-
-install(TARGETS Scheduler
-    BUNDLE  DESTINATION .
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+install(TARGETS ${PROJECT_NAME}
+    BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
-
-qt_generate_deploy_app_script(
-    TARGET Scheduler
-    OUTPUT_SCRIPT deploy_script
-    NO_UNSUPPORTED_PLATFORM_ERROR
-)
-install(SCRIPT ${deploy_script})
