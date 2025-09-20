@@ -1,42 +1,42 @@
 const Tabs = {
-    MAIN: 0,
-    SECONDARY: 1,
+    OVERVIEW: 0,
+    RULES: 1,
 }
 
-let currentTab = Tabs.MAIN
+let currentTab = Tabs.OVERVIEW
 
 
-function onPrimaryClick() {
-    console.log("Switching to MAIN tab")
+function onOverviewClick() {
+    console.log("Switching to OVERVIEW tab")
 
-    if(currentTab != Tabs.MAIN) {
-        currentTab = Tabs.MAIN
-        navbutton_main.checked = true
-        navbutton_secondary.checked = false
+    if(currentTab != Tabs.OVERVIEW) {
+        currentTab = Tabs.OVERVIEW
+        navbutton_overview.checked = true
+        navbutton_rules.checked = false
 
-        showMainTab()
+        showOverviewTab()
     } else {
-        navbutton_main.checked = true
+        navbutton_overview.checked = true
     }
 }
-function onSecondaryClick() {
-    console.log("Switching to SECONDARY tab")
+function onRulesClick() {
+    console.log("Switching to RULES tab")
 
-    if(currentTab != Tabs.SECONDARY) {
-        currentTab = Tabs.SECONDARY
-        navbutton_main.checked = false
-        navbutton_secondary.checked = true
+    if(currentTab != Tabs.RULES) {
+        currentTab = Tabs.RULES
+        navbutton_overview.checked = false
+        navbutton_rules.checked = true
 
-        showSecondaryTab()
+        showRulesTab()
     } else {
-        navbutton_secondary.checked = true
+        navbutton_rules.checked = true
     }
 }
 
 
-function showMainTab() {
-    console.log("showMainTab()")
+function showOverviewTab() {
+    console.log("showOverviewTab()")
 }
-function showSecondaryTab() {
-    console.log("showSecondaryTab()")
+function showRulesTab() {
+    console.log("showRulesTab()")
 }

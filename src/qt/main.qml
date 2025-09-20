@@ -37,22 +37,22 @@ Window {
                 spacing: 0
 
                 NavButton {
-                    id: navbutton_main
+                    id: navbutton_overview
 
-                    label: "Main"
+                    label: "Overview"
                     topRadius: 40
                     _height: Utils.clamp(50, parent.height * 0.125, 100)
 
-                    onClicked: JS.onPrimaryClick()
+                    onClicked: JS.onOverviewClick()
                     checked: true
                 }
                 NavButton {
-                    id: navbutton_secondary
+                    id: navbutton_rules
 
-                    label: "Second"
+                    label: "Rules"
                     _height: Utils.clamp(50, parent.height * 0.125, 100)
 
-                    onClicked: JS.onSecondaryClick()
+                    onClicked: JS.onRulesClick()
                 }
             }
         }
@@ -63,8 +63,6 @@ Window {
 
             Layout.fillWidth: true
             Layout.fillHeight: true
-
-            padding: Utils.clamp(5, wi
         }
     }
 }
