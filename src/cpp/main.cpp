@@ -1,7 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include "mainwindow.h"
+
+extern void initializeShortcuts(QObject*);
 
 
 int main(int argc, char *argv[]) {
@@ -25,6 +26,8 @@ int main(int argc, char *argv[]) {
     if(!window) {
         QCoreApplication::exit(2);
     }
+
+    initializeShortcuts(window);
 
     return app.exec();
 }

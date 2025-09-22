@@ -1,5 +1,6 @@
 qt_add_executable(${PROJECT_NAME}
     cpp/main.cpp
+    cpp/shortcuts.cpp
 )
 
 add_subdirectory(qt)
