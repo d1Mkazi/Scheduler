@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd bin/src
+cd bin
 ./Scheduler
-cd ../..
+cd ..
