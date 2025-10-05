@@ -14,31 +14,14 @@ Window {
 
     title: "Scheduler"
     width: 1200
+    minimumWidth: 230 // Tab menu minimum width + TODO: main area width
     height: 700
     visible: true
     color: color_backgroundPrimary
 
     /* MAIN AREA VIEWPORTS */
 
-    Rectangle {
-        // Overview
-
-        id: overviewArea
-        anchors.top: parent.top
-        anchors.left: menuArea.right
-
-        height: parent.height
-        width: 500
-
-        color: "#000000"
-
-        Image {
-            anchors.centerIn: parent
-            source: "qrc:/gui/assets/overview.svg"
-            height: 50
-            width: 50
-        }
-    }
+    // nothing lol
 
     /* LEFT BAR */
 
@@ -61,7 +44,7 @@ Window {
         anchors.left: parent
 
         height: parent.height
-        width: Utils.clamp(150, parent.width * 0.2, 300)
+        width: Utils.clamp(230, parent.width * 0.2, 300)
 
         topRightRadius: 40
         bottomRightRadius: 40
@@ -72,21 +55,28 @@ Window {
 
             NavButton {
                 id: navbutton_overview
-
                 label: "Overview"
                 topRadius: 40
-                height: Utils.clamp(50, parent.height * 0.125, 80)
-
                 onClicked: JS.onOverviewClick()
                 checked: true
+                img: "qrc:/gui/assets/overview.svg"
             }
             NavButton {
                 id: navbutton_rules
-
                 label: "Rules"
-                height: Utils.clamp(50, parent.height * 0.125, 80)
-
                 onClicked: JS.onRulesClick()
+                img: "qrc:/gui/assets/rules.svg"
+            }
+            Item {
+                width: parent.width
+                height: parent.height - (Utils.clamp(50, parent.height * 0.125, 80) * 3)
+            }
+            NavButton {
+                // TODO: change this to Row {}
+                id: navbutton_settings
+                label: "Settings"
+                bottomRadius: 40
+                img: "qrc:/gui/assets/settings.svg"
             }
         }
     }
