@@ -4,7 +4,7 @@ import QtQuick.Controls
 import "utils.js" as Utils
 
 
-Button {
+AbstractButton {
     property string label: "undef"
     property real topRadius: 0
     property real bottomRadius: 0
@@ -26,6 +26,84 @@ Button {
 
     checkable: true
     checked: false
+
+    Rectangle {
+        id: mainBackground
+        anchors.fill: parent
+
+        color: parent.checked ? color_active : color_backgroundSecondary
+        topRightRadius: topRadius
+        bottomRightRadius: bottomRadius
+    }
+    Rectangle {
+        id: fillerBackground
+        anchors.top: mainBackground.top
+        anchors.left: mainBackground.left
+
+        height: mainBackground.height
+        width: 0
+
+        topRightRadius: mainBackground.topRightRadius
+        bottomRightRadius: mainBackground.bottomRightRadius
+
+        color: color_active
+
+        states: [
+            State {
+                name: "hover"
+                when: fillerBackground.parent.hovered
+                PropertyChanges {
+                    target: fillerBackground
+                    width: 0
+                }
+            },
+            State {
+                name: "off"
+                when: !fillerBackground.parent.checked
+            },
+            State {
+                name: "on"
+                when: fillerBackground.parent.checked
+            }
+        ]
+        transitions: [
+            Transition {
+                to: "hover"
+                SequentialAnimation {
+                    PropertyAnimation {
+                        target: fillerBackground
+                        property: "width"
+                        from: 0
+                        to: mainBackground.width
+                        duration: 150
+                    }
+                    PropertyAction {
+                        target: mainBackground
+                        property: "color"
+                        value: color_active
+                    }
+                }
+            },
+            Transition {
+                from: "hover"
+                to: "off"
+                PropertyAction {
+                    target: mainBackground
+                    property: "color"
+                    value: color_backgroundSecondary
+                }
+            },
+            Transition {
+                from: "hover"
+                to: "on"
+                PropertyAction {
+                    target: mainBackground
+                    property: "color"
+                    value: color_active
+                }
+            }
+        ]
+    }
 
     Row {
         anchors.verticalCenter: parent.verticalCenter
@@ -51,13 +129,5 @@ Button {
                 weight: parent.parent.checked ? Font.Black : Font.Medium
             }
         }
-    }
-
-    background: Rectangle {
-        anchors.fill: parent
-
-        color: parent.checked ? color_active : color_backgroundSecondary
-        topRightRadius: topRadius
-        bottomRightRadius: bottomRadius
     }
 }
