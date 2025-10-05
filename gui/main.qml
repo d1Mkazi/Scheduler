@@ -27,7 +27,7 @@ Window {
 
     RectangularShadow {
         anchors.fill: menuArea
-        radius: menuArea.topRightRadius
+        radius: menuArea.topRightRadius * 0.75
         offset.x: 5
         blur: 15
         spread: 5
