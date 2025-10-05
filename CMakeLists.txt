@@ -5,6 +5,8 @@ project(Scheduler VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_AUTORCC ON)
+
 find_package(Qt6 REQUIRED COMPONENTS
     Widgets
     Quick
@@ -18,21 +20,23 @@ qt_policy(SET QTP0004 NEW)
 
 # DIRECTORY: /src/ #
 qt_add_executable(${PROJECT_NAME}
-    src/cpp/main.cpp
-    src/cpp/shortcuts.cpp
+    src/main.cpp
+    src/shortcuts.cpp
+    gui/resources.qrc
 )
 
 # DIRECTORY: /src/qt/ #
-set(WORKING_DIR src/qt)
-qt_add_qml_module(${PROJECT_NAME}
-    URI gui
-    VERSION 1.0
-    QML_FILES
-        src/qt/main.qml
-        src/qt/NavButton.qml
-        src/qt/main.js
-        src/qt/utils.js
-)
+#qt_add_qml_module(${PROJECT_NAME}
+#    URI gui
+#    VERSION 1.0
+#    QML_FILES
+#        gui/main.qml
+#        gui/NavButton.qml
+#        gui/main.js
+#        gui/utils.js
+#    RESOURCES
+#        gui/overview.svg
+#)
 #######################
 
 target_include_directories(${PROJECT_NAME} PRIVATE src/cpp/inc)

@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="gui/">
+        <file>main.qml</file>
+        <file>NavButton.qml</file>
+        <file>main.js</file>
+        <file>utils.js</file>
+        <file>assets/overview.png</file>
+        <file>assets/overview.svg</file>
+    </qresource>
+</RCC>

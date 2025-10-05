@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
-    const QUrl url(QStringLiteral("gui/src/qt/main.qml"));
+    const QUrl url(QStringLiteral("qrc:/gui/main.qml"));
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreated,

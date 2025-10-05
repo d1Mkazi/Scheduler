@@ -1,15 +1,16 @@
 import QtQuick
 import QtQuick.Controls
 
+import "utils.js" as Utils
+
 
 Button {
     property string label: "undef"
     property real topRadius: 0
     property real bottomRadius: 0
-    property real _height: parent.height * 0.125
 
     width: parent.width
-    height: _height
+    height: this.height
 
     checkable: true
     checked: false
@@ -17,7 +18,7 @@ Button {
     Text {
         anchors.fill: parent
         text: label
-        color: "white"
+        color: "#ffffff"
         font {
             pointSize: 20
         }
@@ -28,7 +29,7 @@ Button {
     background: Rectangle {
         anchors.fill: parent
 
-        color: parent.checked ? color_backgroundPrimary : color_backgroundSecondary
+        color: parent.checked ? color_active : color_backgroundSecondary
         topRightRadius: topRadius
         bottomRightRadius: bottomRadius
     }
