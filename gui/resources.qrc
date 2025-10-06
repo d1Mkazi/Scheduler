@@ -3,13 +3,27 @@
         <!-- Sources -->
         <file>main.qml</file>
         <file>NavButton.qml</file>
+        <file>IconButton.qml</file>
+        <file>OverviewArea.qml</file>
+        <file>RulesArea.qml</file>
+        <file>SubjectsArea.qml</file>
+        <file>TeachersArea.qml</file>
+
         <file>main.js</file>
         <file>utils.js</file>
+        <file>overview.js</file>
+        <file>rules.js</file>
+        <file>subjects.js</file>
+        <file>teachers.js</file>
         
         <!-- Icons -->
-        <file>assets/overview.svg</file>
-        <file>assets/rules.svg</file>
-        <file>assets/settings.svg</file>
+        <file alias="icons/overview">assets/icons/overview.svg</file>
+        <file alias="icons/rules">assets/icons/rules.svg</file>
+        <file alias="icons/subjects">assets/icons/subjects.svg</file>
+        <file alias="icons/people">assets/icons/people.svg</file>
+        <file alias="icons/settings">assets/icons/settings.svg</file>
+        <file alias="icons/arrow_left">assets/icons/arrow_left.svg</file>
+        <file alias="icons/arrow_right">assets/icons/arrow_right.svg</file>
 
         <!-- Fonts -->
         <file alias="Tienne.ttf">assets/fonts/Tienne-Regular.ttf</file>

@@ -24,7 +24,7 @@ AbstractButton {
     width: parent.width
     height: Utils.clamp(50, this.parent.height * 0.125, 80)
 
-    checkable: true
+    //checkable: true
     checked: false
 
     Rectangle {
@@ -46,12 +46,12 @@ AbstractButton {
         topRightRadius: mainBackground.topRightRadius
         bottomRightRadius: mainBackground.bottomRightRadius
 
-        color: color_active
+        color: Qt.darker(color_active, 1.15)
 
         states: [
             State {
                 name: "hover"
-                when: fillerBackground.parent.hovered
+                when: fillerBackground.parent.hovered && !fillerBackground.parent.checked
                 PropertyChanges {
                     target: fillerBackground
                     width: 0
@@ -77,29 +77,29 @@ AbstractButton {
                         to: mainBackground.width
                         duration: 150
                     }
-                    PropertyAction {
-                        target: mainBackground
-                        property: "color"
-                        value: color_active
-                    }
                 }
             },
             Transition {
-                from: "hover"
                 to: "off"
-                PropertyAction {
-                    target: mainBackground
-                    property: "color"
-                    value: color_backgroundSecondary
+                PropertyAnimation {
+                    target: fillerBackground
+                    property: "width"
+                    from: fillerBackground.width
+                    to: 0
+                    duration: 100
                 }
             },
             Transition {
-                from: "hover"
                 to: "on"
                 PropertyAction {
                     target: mainBackground
                     property: "color"
                     value: color_active
+                }
+                PropertyAction {
+                    target: fillerBackground
+                    property: "width"
+                    value: 0
                 }
             }
         ]
@@ -121,7 +121,7 @@ AbstractButton {
         }
         Text {
             anchors.verticalCenter: parent.verticalCenter
-            text: label
+            text: parent.parent.width >= navbar_minimumWidth ? label : ""
             color: "#ffffff"
             font {
                 pointSize: 20

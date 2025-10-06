@@ -8,43 +8,95 @@ import "utils.js" as Utils
 
 
 Window {
+    id: mainWindow
+
     property string color_backgroundPrimary: "#38383a"
     property string color_backgroundSecondary: Qt.darker(color_backgroundPrimary, 1.15)
     property string color_active: "#44444a"
 
+    property real navbar_minimumWidth: 230
+
     title: "Scheduler"
-    width: 1200
-    minimumWidth: 230 // Tab menu minimum width + TODO: main area width
     height: 700
+    minimumHeight: 350
+    width: 1200
+    minimumWidth: navbar_minimumWidth // Tab menu minimum width + TODO: main area width
     visible: true
     color: color_backgroundPrimary
 
     /* MAIN AREA VIEWPORTS */
 
-    // nothing lol
+    OverviewArea {
+        id: mainArea_overview
+
+        anchors.left: navbar.right
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+
+        color: "#ffffff"
+
+        visible: navbutton_overview.checked
+    }
+    RulesArea {
+        id: mainArea_rules
+
+        anchors.left: navbar.right
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+
+        color: "#ff0000"
+
+        visible: navbutton_rules.checked
+    }
+    SubjectsArea {
+        id: mainArea_subjects
+
+        anchors.left: navbar.right
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+
+        color: "#0000ff"
+
+        visible: navbutton_subjects.checked
+    }
+    TeachersArea {
+        id: mainArea_teachers
+
+        anchors.left: navbar.right
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+
+        color: "#000000"
+
+        visible: navbutton_teachers.checked
+    }
 
     /* LEFT BAR */
 
     RectangularShadow {
-        anchors.fill: menuArea
-        radius: menuArea.topRightRadius * 0.75
+        anchors.fill: navbar
+        radius: navbar.topRightRadius * 0.75
         offset.x: 5
         blur: 15
         spread: 5
-        color: Qt.darker(menuArea.color, 1.2)
+        color: Qt.darker(navbar.color, 1.2)
     }
 
     Rectangle {
         // Left area (Tab Menu)
 
-        id: menuArea
+        id: navbar
         color: color_backgroundSecondary
 
-        anchors.top: parent
-        anchors.left: parent
+        anchors.top: parent.top
+        anchors.left: parent.left
 
         height: parent.height
-        width: Utils.clamp(230, parent.width * 0.2, 300)
+        width: Utils.clamp(navbar_minimumWidth, parent.width * 0.2, 300)
 
         topRightRadius: 40
         bottomRightRadius: 40
@@ -59,25 +111,107 @@ Window {
                 topRadius: 40
                 onClicked: JS.onOverviewClick()
                 checked: true
-                img: "qrc:/gui/assets/overview.svg"
+                img: "icons/overview"
             }
             NavButton {
                 id: navbutton_rules
                 label: "Rules"
                 onClicked: JS.onRulesClick()
-                img: "qrc:/gui/assets/rules.svg"
+                img: "icons/rules"
+            }
+            NavButton {
+                id: navbutton_subjects
+                label: "Subjects"
+                onClicked: JS.onSubjectsClick()
+                img: "icons/subjects"
+            }
+            NavButton {
+                id: navbutton_teachers
+                label: "Teachers"
+                onClicked: JS.onTeachersClick()
+                img: "icons/people"
             }
             Item {
                 width: parent.width
-                height: parent.height - (Utils.clamp(50, parent.height * 0.125, 80) * 3)
-            }
-            NavButton {
-                // TODO: change this to Row {}
-                id: navbutton_settings
-                label: "Settings"
-                bottomRadius: 40
-                img: "qrc:/gui/assets/settings.svg"
+                height: parent.height - (Utils.clamp(50, parent.height * 0.125, 80) * 4.75)
             }
         }
+        IconButton {
+            id: settingsButton
+
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.margins: 20
+
+            enabled: navbar.width >= 150
+            visible: this.enabled
+            src: "icons/settings"
+            backgroundColor: color_backgroundSecondary
+            height: 35
+            width: 35
+            onClicked: JS.onSettingsClick()
+        }
+        IconButton {
+            id: navbarButton
+
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+            anchors.margins: 20
+
+            src: "icons/arrow_left"
+            backgroundColor: color_backgroundSecondary
+            smooth: navbar.bottomRightRadius
+            height: 35
+            width: 35
+
+            checkable: true
+        }
+
+        states: [
+            State {
+                name: "narrow"
+                when: navbarButton.checked
+            },
+            State {
+                name: "wide"
+                when: !navbarButton.checked
+            }
+        ]
+        transitions: [
+            Transition {
+                to: "narrow"
+                SequentialAnimation {
+                    PropertyAnimation {
+                        target: navbar
+                        property: "width"
+                        from: navbar.width
+                        to: 80
+                        duration: 250
+                    }
+                    PropertyAction {
+                        target: navbarButton
+                        property: "src"
+                        value: "icons/arrow_right"
+                    }
+                }
+            },
+            Transition {
+                to: "wide"
+                SequentialAnimation {
+                    PropertyAnimation {
+                        target: navbar
+                        property: "width"
+                        from: navbar.width
+                        to: Utils.clamp(navbar_minimumWidth, mainWindow.width * 0.2, 300)
+                        duration: 250
+                    }
+                    PropertyAction {
+                        target: navbarButton
+                        property: "src"
+                        value: "icons/arrow_left"
+                    }
+                }
+            }
+        ]
     }
 }
