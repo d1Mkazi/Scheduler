@@ -69,14 +69,12 @@ AbstractButton {
         transitions: [
             Transition {
                 to: "hover"
-                SequentialAnimation {
-                    PropertyAnimation {
-                        target: fillerBackground
-                        property: "width"
-                        from: 0
-                        to: mainBackground.width
-                        duration: 150
-                    }
+                PropertyAnimation {
+                    target: fillerBackground
+                    property: "width"
+                    from: 0
+                    to: mainBackground.width
+                    duration: 150
                 }
             },
             Transition {

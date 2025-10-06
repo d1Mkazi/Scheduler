@@ -171,10 +171,18 @@ Window {
             State {
                 name: "narrow"
                 when: navbarButton.checked
+                PropertyChanges {
+                    target: navbar
+                    width: 80
+                }
             },
             State {
                 name: "wide"
                 when: !navbarButton.checked
+                PropertyChanges {
+                    target: navbar
+                    width: Utils.clamp(navbar_minimumWidth, parent.width * 0.2, 300)
+                }
             }
         ]
         transitions: [
@@ -185,7 +193,6 @@ Window {
                         target: navbar
                         property: "width"
                         from: navbar.width
-                        to: 80
                         duration: 250
                     }
                     PropertyAction {
@@ -201,8 +208,7 @@ Window {
                     PropertyAnimation {
                         target: navbar
                         property: "width"
-                        from: navbar.width
-                        to: Utils.clamp(navbar_minimumWidth, mainWindow.width * 0.2, 300)
+                        from: 80
                         duration: 250
                     }
                     PropertyAction {
