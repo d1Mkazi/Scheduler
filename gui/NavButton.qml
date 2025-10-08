@@ -21,6 +21,12 @@ AbstractButton {
         }
     }
 
+    MouseArea {
+        anchors.fill: parent
+        cursorShape: Qt.PointingHandCursor
+        onClicked: parent.click()
+    }
+
     width: parent.width
     height: Utils.clamp(50, this.parent.height * 0.125, 80)
 

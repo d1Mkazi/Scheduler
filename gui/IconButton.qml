@@ -12,9 +12,11 @@ AbstractButton {
     height: this.height
     width: this.width
 
-    //checkable: true
-    checked: false
-    onClicked: this.onClicked
+    MouseArea {
+        anchors.fill: parent
+        cursorShape: Qt.PointingHandCursor
+        onClicked: parent.click()
+    }
 
     Rectangle {
         anchors.fill: parent
