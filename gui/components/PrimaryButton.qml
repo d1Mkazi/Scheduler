@@ -18,7 +18,7 @@ AbstractButton {
         id: mouseArea
         anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
-        onClicked: console.log("CLICK!")
+        onClicked: primaryButton.click()
     }
 
     Rectangle {
