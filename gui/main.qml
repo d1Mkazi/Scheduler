@@ -8,19 +8,18 @@ import "utils.js" as Utils
 
 
 Window {
-    id: mainWindow
-
     property string color_backgroundPrimary: "#38383a"
     property string color_backgroundSecondary: Qt.darker(color_backgroundPrimary, 1.15)
     property string color_active: "#44444a"
 
     property real navbar_minimumWidth: 230
+    property real viewport_minimumWidth: 270
 
     title: "Scheduler"
     height: 700
     minimumHeight: 350
     width: 1200
-    minimumWidth: navbar_minimumWidth // Tab menu minimum width + TODO: main area width
+    minimumWidth: navbar_minimumWidth + viewport_minimumWidth
     visible: true
     color: color_backgroundPrimary
 
@@ -70,7 +69,7 @@ Window {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
 
-        color: "#000000"
+        color: color_backgroundPrimary
 
         visible: navbutton_teachers.checked
     }
@@ -192,7 +191,6 @@ Window {
                     PropertyAnimation {
                         target: navbar
                         property: "width"
-                        from: navbar.width
                         duration: 250
                     }
                     PropertyAction {
@@ -208,7 +206,6 @@ Window {
                     PropertyAnimation {
                         target: navbar
                         property: "width"
-                        from: 80
                         duration: 250
                     }
                     PropertyAction {
