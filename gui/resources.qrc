@@ -10,6 +10,7 @@
         <!-- Components -->
         <file alias="NavButton.qml">components/NavButton.qml</file>
         <file alias="IconButton.qml">components/IconButton.qml</file>
+        <file alias="PrimaryButton.qml">components/PrimaryButton.qml</file>
 
         <!-- Javascript -->
         <file alias="main.js">js/main.js</file>

@@ -8,4 +8,23 @@ import "overview.js" as Script
 
 
 Rectangle {
+    anchors.margins: 15
+
+    ColumnLayout {
+        anchors.fill: parent
+        spacing: 15
+        Rectangle {
+            id: header
+            Layout.fillWidth: true
+            Layout.preferredHeight: 50
+
+            color: color_backgroundSecondary
+
+            PrimaryButton {
+                anchors.fill: parent
+
+                img: "icons/people"
+            }
+        }
+    }
 }
