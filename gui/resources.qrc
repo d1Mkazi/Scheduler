@@ -11,6 +11,7 @@
         <file alias="NavButton.qml">components/NavButton.qml</file>
         <file alias="IconButton.qml">components/IconButton.qml</file>
         <file alias="PrimaryButton.qml">components/PrimaryButton.qml</file>
+        <file alias="TeacherListElement.qml">components/TeacherListElement.qml</file>
 
         <!-- Javascript -->
         <file alias="main.js">js/main.js</file>
@@ -28,6 +29,9 @@
         <file alias="icons/settings">assets/icons/settings.svg</file>
         <file alias="icons/arrow_left">assets/icons/arrow_left.svg</file>
         <file alias="icons/arrow_right">assets/icons/arrow_right.svg</file>
+        <file alias="icons/remove">assets/icons/trashbin.svg</file>
+        <file alias="icons/edit">assets/icons/pencil.svg</file>
+        <file alias="icons/confirm">assets/icons/check.svg</file>
 
         <!-- Fonts -->
         <file alias="Tienne.ttf">assets/fonts/Tienne-Regular.ttf</file>
