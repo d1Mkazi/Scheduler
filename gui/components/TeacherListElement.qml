@@ -10,7 +10,8 @@ Rectangle {
     property QtObject firstnameField: firstname_field
     property QtObject secondnameField: secondname_field
 
-    Layout.fillWidth: true
+    //Layout.fillWidth: true
+    width: parent.width
     height: 40
 
     radius: 10
@@ -65,7 +66,7 @@ Rectangle {
             src: this.checked ? "icons/confirm" : "icons/edit"
             backgroundColor: color_backgroundSecondary
             checkable: true
-            onClicked: console.log(element)
+            onClicked: console.log("Edit:", element)
         }
         IconButton {
             Layout.fillHeight: true
@@ -75,7 +76,7 @@ Rectangle {
             src: "icons/remove"
             backgroundColor: color_backgroundSecondary
             enabled: !edit_button.checked
-            onClicked: console.log(element)
+            onClicked: element.destroy()
         }
     }
 }

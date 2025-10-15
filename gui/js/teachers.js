@@ -42,3 +42,7 @@ function addTeacher(surname, firstname, secondname) {
 
     lastId++;
 }
+
+function removeTeacher(obj) {
+    obj.destroy()
+}
