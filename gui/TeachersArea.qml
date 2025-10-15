@@ -53,13 +53,14 @@ Rectangle {
 
                     placeholderText: "Second name"
                 }
-                PrimaryButton {
+                IconButton {
                     Layout.fillWidth: true
-                    Layout.minimumWidth: 50
-                    Layout.maximumWidth: 150
                     Layout.fillHeight: true
+                    Layout.maximumWidth: height
+                    Layout.minimumWidth: height
 
-                    img: "icons/people"
+                    backgroundColor: color_backgroundSecondary
+                    src: "icons/add"
                     onClicked: Script.addTeacher(field_surname.text, field_firstname.text, field_secondname.text)
                 }
             }

@@ -32,6 +32,7 @@
         <file alias="icons/remove">assets/icons/trashbin.svg</file>
         <file alias="icons/edit">assets/icons/pencil.svg</file>
         <file alias="icons/confirm">assets/icons/check.svg</file>
+        <file alias="icons/add">assets/icons/add_circle.svg</file>
 
         <!-- Fonts -->
         <file alias="Tienne.ttf">assets/fonts/Tienne-Regular.ttf</file>
