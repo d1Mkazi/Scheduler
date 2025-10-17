@@ -11,7 +11,7 @@ Rectangle {
     property QtObject secondnameField: secondname_field
 
     //Layout.fillWidth: true
-    width: parent.width
+    Layout.fillWidth: true
     height: 40
 
     radius: 10
