@@ -6,6 +6,7 @@
         <file>RulesArea.qml</file>
         <file>SubjectsArea.qml</file>
         <file>TeachersArea.qml</file>
+        <file>ClassesArea.qml</file>
 
         <!-- Components -->
         <file alias="NavButton.qml">components/NavButton.qml</file>
@@ -20,6 +21,7 @@
         <file alias="rules.js">js/rules.js</file>
         <file alias="subjects.js">js/subjects.js</file>
         <file alias="teachers.js">js/teachers.js</file>
+        <file alias="classes.js">js/classes.js</file>
 
         <!-- Icons -->
         <file alias="icons/overview">assets/icons/overview.svg</file>
@@ -33,6 +35,7 @@
         <file alias="icons/edit">assets/icons/pencil.svg</file>
         <file alias="icons/confirm">assets/icons/check.svg</file>
         <file alias="icons/add">assets/icons/add_circle.svg</file>
+        <file alias="icons/groups">assets/icons/groups.svg</file>
 
         <!-- Fonts -->
         <file alias="Tienne.ttf">assets/fonts/Tienne-Regular.ttf</file>

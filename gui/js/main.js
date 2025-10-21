@@ -3,6 +3,7 @@ const Tabs = {
     RULES: 1,
     SUBJECTS: 2,
     TEACHERS: 3,
+    CLASSES: 4,
 }
 let currentTab = Tabs.OVERVIEW
 
@@ -17,8 +18,7 @@ function onOverviewClick() {
         navbutton_rules.checked = false
         navbutton_subjects.checked = false
         navbutton_teachers.checked = false
-
-        showOverviewTab()
+        navbutton_classes.checked = false
     }
 }
 function onRulesClick() {
@@ -31,8 +31,7 @@ function onRulesClick() {
         navbutton_rules.checked = true
         navbutton_subjects.checked = false
         navbutton_teachers.checked = false
-
-        showRulesTab()
+        navbutton_classes.checked = false
     }
 }
 function onSubjectsClick() {
@@ -45,8 +44,7 @@ function onSubjectsClick() {
         navbutton_rules.checked = false
         navbutton_subjects.checked = true
         navbutton_teachers.checked = false
-
-        showSubjectsTab()
+        navbutton_classes.checked = false
     }
 }
 function onTeachersClick() {
@@ -59,24 +57,22 @@ function onTeachersClick() {
         navbutton_rules.checked = false
         navbutton_subjects.checked = false
         navbutton_teachers.checked = true
+        navbutton_classes.checked = false
+    }
+}
+function onClassesClick() {
+    console.log("Switching to CLASSES tab")
 
-        showTeachersTab()
+    if(currentTab != Tabs.CLASSES) {
+        currentTab = Tabs.CLASSES
+
+        navbutton_overview.checked = false
+        navbutton_rules.checked = false
+        navbutton_subjects.checked = false
+        navbutton_teachers.checked = false
+        navbutton_classes.checked = true
     }
 }
 function onSettingsClick() {
     console.log("onSettingsClick()")
-}
-
-
-function showOverviewTab() {
-    console.log("showOverviewTab()")
-}
-function showRulesTab() {
-    console.log("showRulesTab()")
-}
-function showSubjectsTab() {
-    console.log("showSubjectsTab()")
-}
-function showTeachersTab() {
-    console.log("showTeachersTab()")
 }

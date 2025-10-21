@@ -73,6 +73,18 @@ Window {
 
         visible: navbutton_teachers.checked
     }
+    ClassesArea {
+        id: mainArea_classes
+
+        anchors.left: navbar.right
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+
+        color: color_backgroundPrimary
+
+        visible: navbutton_classes.checked
+    }
 
     /* LEFT BAR */
 
@@ -129,6 +141,12 @@ Window {
                 label: "Teachers"
                 onClicked: JS.onTeachersClick()
                 img: "icons/people"
+            }
+            NavButton {
+                id: navbutton_classes
+                label: "Classes"
+                onClicked: JS.onClassesClick()
+                img: "icons/groups"
             }
             Item {
                 width: parent.width
