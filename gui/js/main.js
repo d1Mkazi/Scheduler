@@ -1,9 +1,9 @@
 const Tabs = {
     OVERVIEW: 0,
-    RULES: 1,
-    SUBJECTS: 2,
-    TEACHERS: 3,
-    CLASSES: 4,
+    SUBJECTS: 1,
+    TEACHERS: 2,
+    CLASSES: 3,
+    RULES: 4,
 }
 let currentTab = Tabs.OVERVIEW
 
@@ -15,10 +15,10 @@ function onOverviewClick() {
         currentTab = Tabs.OVERVIEW
 
         navbutton_overview.checked = true
-        navbutton_rules.checked = false
         navbutton_subjects.checked = false
         navbutton_teachers.checked = false
         navbutton_classes.checked = false
+        navbutton_rules.checked = false
     }
 }
 function onRulesClick() {
@@ -28,10 +28,10 @@ function onRulesClick() {
         currentTab = Tabs.RULES
 
         navbutton_overview.checked = false
-        navbutton_rules.checked = true
         navbutton_subjects.checked = false
         navbutton_teachers.checked = false
         navbutton_classes.checked = false
+        navbutton_rules.checked = true
     }
 }
 function onSubjectsClick() {
@@ -41,10 +41,10 @@ function onSubjectsClick() {
         currentTab = Tabs.SUBJECTS
 
         navbutton_overview.checked = false
-        navbutton_rules.checked = false
         navbutton_subjects.checked = true
         navbutton_teachers.checked = false
         navbutton_classes.checked = false
+        navbutton_rules.checked = false
     }
 }
 function onTeachersClick() {
@@ -54,10 +54,10 @@ function onTeachersClick() {
         currentTab = Tabs.TEACHERS
 
         navbutton_overview.checked = false
-        navbutton_rules.checked = false
         navbutton_subjects.checked = false
         navbutton_teachers.checked = true
         navbutton_classes.checked = false
+        navbutton_rules.checked = false
     }
 }
 function onClassesClick() {
@@ -67,10 +67,10 @@ function onClassesClick() {
         currentTab = Tabs.CLASSES
 
         navbutton_overview.checked = false
-        navbutton_rules.checked = false
         navbutton_subjects.checked = false
         navbutton_teachers.checked = false
         navbutton_classes.checked = true
+        navbutton_rules.checked = false
     }
 }
 function onSettingsClick() {

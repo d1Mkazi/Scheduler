@@ -8,9 +8,14 @@ import "utils.js" as Utils
 
 
 Window {
+    /* COLORS */
+    // general
     property string color_backgroundPrimary: "#38383a"
     property string color_backgroundSecondary: Qt.darker(color_backgroundPrimary, 1.15)
     property string color_active: "#44444a"
+    // specific
+    property string color_textField: "#44444a"
+    property string color_textField_active: "#5f5f67"
 
     property real navbar_minimumWidth: 230
     property real viewport_minimumWidth: 270
@@ -36,18 +41,6 @@ Window {
         color: "#ffffff"
 
         visible: navbutton_overview.checked
-    }
-    RulesArea {
-        id: mainArea_rules
-
-        anchors.left: navbar.right
-        anchors.top: parent.top
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-
-        color: "#ff0000"
-
-        visible: navbutton_rules.checked
     }
     SubjectsArea {
         id: mainArea_subjects
@@ -84,6 +77,18 @@ Window {
         color: color_backgroundPrimary
 
         visible: navbutton_classes.checked
+    }
+    RulesArea {
+        id: mainArea_rules
+
+        anchors.left: navbar.right
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+
+        color: "#ff0000"
+
+        visible: navbutton_rules.checked
     }
 
     /* LEFT BAR */
@@ -125,12 +130,6 @@ Window {
                 img: "icons/overview"
             }
             NavButton {
-                id: navbutton_rules
-                label: "Rules"
-                onClicked: JS.onRulesClick()
-                img: "icons/rules"
-            }
-            NavButton {
                 id: navbutton_subjects
                 label: "Subjects"
                 onClicked: JS.onSubjectsClick()
@@ -147,6 +146,12 @@ Window {
                 label: "Classes"
                 onClicked: JS.onClassesClick()
                 img: "icons/groups"
+            }
+            NavButton {
+                id: navbutton_rules
+                label: "Rules"
+                onClicked: JS.onRulesClick()
+                img: "icons/rules"
             }
             Item {
                 width: parent.width
