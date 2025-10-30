@@ -18,16 +18,19 @@ qt_standard_project_setup(REQUIRES 6.8)
 
 qt_policy(SET QTP0004 NEW)
 
+include_directories(src/include)
+
 qt_add_executable(${PROJECT_NAME}
     src/main.cpp
     src/shortcuts.cpp
+    src/sqlite3.c
     gui/resources.qrc
 )
 
 add_subdirectory(backend)
 
 target_include_directories(${PROJECT_NAME} PRIVATE src/inc)
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets Qt6::Quick Qt6::Core Qt6::Qml)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets Qt6::Quick Qt6::Core Qt6::Qml sqlite3)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES WIN32_EXECUTABLE ON)
 

@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
+#include <sqlite3.h>
 
 
 extern int initializeShortcuts(QObject*);
@@ -32,6 +33,10 @@ int main(int argc, char *argv[]) {
     if(err) {
         qDebug() << "Failed adding shortcuts: " << err;
     }
+
+    sqlite3 *db;
+    sqlite3_open("Scheduler.db", &db);
+    sqlite3_close(db);
 
     return app.exec();
 }
