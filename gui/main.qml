@@ -31,7 +31,7 @@ Window {
     /* MAIN AREA VIEWPORTS */
 
     OverviewArea {
-        id: mainArea_overview
+        objectName: "mainArea_overview"
 
         anchors.left: navbar.right
         anchors.top: parent.top
@@ -42,20 +42,8 @@ Window {
 
         visible: navbutton_overview.checked
     }
-    SubjectsArea {
-        id: mainArea_subjects
-
-        anchors.left: navbar.right
-        anchors.top: parent.top
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-
-        color: "#0000ff"
-
-        visible: navbutton_subjects.checked
-    }
     TeachersArea {
-        id: mainArea_teachers
+        objectName: "mainArea_teachers"
 
         anchors.left: navbar.right
         anchors.top: parent.top
@@ -66,8 +54,20 @@ Window {
 
         visible: navbutton_teachers.checked
     }
+    SubjectsArea {
+        objectName: "mainArea_subjects"
+
+        anchors.left: navbar.right
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+
+        color: "#0000ff"
+
+        visible: navbutton_subjects.checked
+    }
     ClassesArea {
-        id: mainArea_classes
+        objectName: "mainArea_classes"
 
         anchors.left: navbar.right
         anchors.top: parent.top
@@ -79,7 +79,7 @@ Window {
         visible: navbutton_classes.checked
     }
     RulesArea {
-        id: mainArea_rules
+        objectName: "mainArea_rules"
 
         anchors.left: navbar.right
         anchors.top: parent.top
@@ -130,16 +130,16 @@ Window {
                 img: "icons/overview"
             }
             NavButton {
-                id: navbutton_subjects
-                label: "Subjects"
-                onClicked: JS.onSubjectsClick()
-                img: "icons/subjects"
-            }
-            NavButton {
                 id: navbutton_teachers
                 label: "Teachers"
                 onClicked: JS.onTeachersClick()
                 img: "icons/people"
+            }
+            NavButton {
+                id: navbutton_subjects
+                label: "Subjects"
+                onClicked: JS.onSubjectsClick()
+                img: "icons/subjects"
             }
             NavButton {
                 id: navbutton_classes
