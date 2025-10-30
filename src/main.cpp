@@ -2,7 +2,8 @@
 #include <QQmlApplicationEngine>
 
 
-extern void initializeShortcuts(QObject*);
+
+extern int initializeShortcuts(QObject*);
 
 
 int main(int argc, char *argv[]) {
@@ -27,7 +28,10 @@ int main(int argc, char *argv[]) {
         QCoreApplication::exit(2);
     }
 
-    initializeShortcuts(window);
+    int err = initializeShortcuts(window);
+    if(err) {
+        qDebug() << "Failed adding shortcuts: " << err;
+    }
 
     return app.exec();
 }

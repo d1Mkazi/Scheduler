@@ -3,7 +3,7 @@
 #include <QDebug>
 
 
-void initializeShortcuts(QObject *window) {
+int initializeShortcuts(QObject *window) {
 #ifdef __linux__
     QShortcut *closeWindow = new QShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_W), window);
     QShortcut::connect(closeWindow, &QShortcut::activated, window,
@@ -12,4 +12,6 @@ void initializeShortcuts(QObject *window) {
         }
     );
 #endif // __linux__
+
+    return 0;
 }
