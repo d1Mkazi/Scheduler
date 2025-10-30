@@ -8,7 +8,7 @@ Rectangle {
 
     property QtObject surnameField: surname_field
     property QtObject firstnameField: firstname_field
-    property QtObject secondnameField: secondname_field
+    property QtObject middlenameField: middlename_field
 
     //Layout.fillWidth: true
     Layout.fillWidth: true
@@ -26,7 +26,7 @@ Rectangle {
         anchors.rightMargin: anchors.leftMargin
         anchors.bottomMargin: anchors.topMargin
 
-        TextField {
+        TextLine {
             id: surname_field
 
             Layout.fillHeight: true
@@ -34,9 +34,9 @@ Rectangle {
 
             color: "gray"
             placeholderText: "Surname"
-            enabled: edit_button.checked
+            editable: edit_button.checked
         }
-        TextField {
+        TextLine {
             id: firstname_field
 
             Layout.fillHeight: true
@@ -44,17 +44,17 @@ Rectangle {
 
             color: "gray"
             placeholderText: "First name"
-            enabled: edit_button.checked
+            editable: edit_button.checked
         }
-        TextField {
-            id: secondname_field
+        TextLine {
+            id: middlename_field
 
             Layout.fillHeight: true
             Layout.fillWidth: true
 
             color: "gray"
             placeholderText: "Second name"
-            enabled: edit_button.checked
+            editable: edit_button.checked
         }
         IconButton {
             id: edit_button

@@ -5,6 +5,7 @@ import QtQuick.Effects
 
 
 import "teachers.js" as Script
+import backend
 
 
 Rectangle {
@@ -32,28 +33,29 @@ Rectangle {
                 anchors.bottomMargin: anchors.topMargin
                 spacing: 10
 
-                TextField {
+                TextLine {
                     id: field_surname
                     Layout.fillWidth: true
                     Layout.fillHeight: true
 
                     placeholderText: "Surname"
                 }
-                TextField {
+                TextLine {
                     id: field_firstname
                     Layout.fillWidth: true
                     Layout.fillHeight: true
 
                     placeholderText: "First name"
                 }
-                TextField {
-                    id: field_secondname
+                TextLine {
+                    id: field_middlename
                     Layout.fillWidth: true
                     Layout.fillHeight: true
 
-                    placeholderText: "Second name"
+                    placeholderText: "Middle name"
                 }
                 IconButton {
+                    id: button_addTeacher
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     Layout.maximumWidth: height
@@ -61,7 +63,21 @@ Rectangle {
 
                     backgroundColor: color_backgroundSecondary
                     src: "icons/add"
-                    onClicked: Script.addTeacher(field_surname.text, field_firstname.text, field_secondname.text)
+                    onClicked: {
+                        let err = Backend.addTeacher(field_surname.text, field_firstname.text, field_middlename.text)
+                        if(err) {
+                            console.log("Error when adding a new teacher:", err)
+                            return;
+                        }
+
+                        Script.addTeacher(field_surname.text, field_firstname.text, field_middlename.text)
+                    }
+                }
+
+                Shortcut {
+                    enabled: (field_surname.focus || field_firstname.focus || field_middlename.focus) && button_addTeacher.enabled
+                    sequence: "Return"
+                    onActivated: button_addTeacher.click()
                 }
             }
         }

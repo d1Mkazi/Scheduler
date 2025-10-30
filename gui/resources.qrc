@@ -13,6 +13,7 @@
         <file alias="IconButton.qml">components/IconButton.qml</file>
         <file alias="PrimaryButton.qml">components/PrimaryButton.qml</file>
         <file alias="TeacherListElement.qml">components/TeacherListElement.qml</file>
+        <file alias="TextLine.qml">components/TextLine.qml</file>
 
         <!-- Javascript -->
         <file alias="main.js">js/main.js</file>

@@ -19,11 +19,7 @@ function loadComponent(url) {
     }
 }
 
-function addTeacher(surname, firstname, secondname) {
-    if(surname == "" || firstname == "" || secondname == "") {
-        return
-    }
-
+function addTeacher(surname, firstname, middlename) {
     let element = loadComponent("TeacherListElement.qml", teacherList)
 
     if(!element) {
@@ -34,11 +30,11 @@ function addTeacher(surname, firstname, secondname) {
 
     obj.surnameField.text = surname
     obj.firstnameField.text = firstname
-    obj.secondnameField.text = secondname
+    obj.middlenameField.text = middlename
 
     field_surname.text = ""
     field_firstname.text = ""
-    field_secondname.text = ""
+    field_middlename.text = ""
 
     lastId++;
 }
