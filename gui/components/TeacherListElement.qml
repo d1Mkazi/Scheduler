@@ -31,8 +31,9 @@ Rectangle {
 
             Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.preferredWidth: 250
 
-            color: "gray"
+            color: editable ? "black" : "gray"
             placeholderText: "Surname"
             editable: edit_button.checked
         }
@@ -41,8 +42,9 @@ Rectangle {
 
             Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.preferredWidth: 250
 
-            color: "gray"
+            color: editable ? "black" : "gray"
             placeholderText: "First name"
             editable: edit_button.checked
         }
@@ -51,8 +53,9 @@ Rectangle {
 
             Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.preferredWidth: 250
 
-            color: "gray"
+            color: editable ? "black" : "gray"
             placeholderText: "Second name"
             editable: edit_button.checked
         }
@@ -61,7 +64,7 @@ Rectangle {
 
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.minimumWidth: 20
+            Layout.minimumWidth: height
             Layout.maximumWidth: height
             src: this.checked ? "icons/confirm" : "icons/edit"
             backgroundColor: color_backgroundSecondary
@@ -71,12 +74,18 @@ Rectangle {
         IconButton {
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.minimumWidth: 20
+            Layout.minimumWidth: height
             Layout.maximumWidth: height
             src: "icons/remove"
             backgroundColor: color_backgroundSecondary
             enabled: !edit_button.checked
             onClicked: element.destroy()
         }
+    }
+
+    Shortcut {
+        enabled: edit_button.checked
+        sequence: "Return"
+        onActivated: edit_button.click()
     }
 }

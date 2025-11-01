@@ -37,22 +37,25 @@ Rectangle {
                     id: field_surname
                     Layout.fillWidth: true
                     Layout.fillHeight: true
+                    Layout.preferredWidth: 250
 
-                    placeholderText: "Surname"
+                    placeholderText: "<i>Surname</i>"
                 }
                 TextLine {
                     id: field_firstname
                     Layout.fillWidth: true
                     Layout.fillHeight: true
+                    Layout.preferredWidth: 250
 
-                    placeholderText: "First name"
+                    placeholderText: "<i>First name</i>"
                 }
                 TextLine {
                     id: field_middlename
                     Layout.fillWidth: true
                     Layout.fillHeight: true
+                    Layout.preferredWidth: 250
 
-                    placeholderText: "Middle name"
+                    placeholderText: "<i>Middle name</i>"
                 }
                 IconButton {
                     id: button_addTeacher

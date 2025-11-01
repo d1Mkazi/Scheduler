@@ -12,9 +12,11 @@ TextField {
 
     font {
         family: "Noto Sans"
-        pointSize: parent.height * 0.25
+        pointSize: parent.height * 0.3
         //color: "white"
     }
+
+    placeholderTextColor: Qt.darker(background.color, 2)
 
     readOnly: !editable
 }
